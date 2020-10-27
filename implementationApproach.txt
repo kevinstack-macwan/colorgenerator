@@ -1,0 +1,18 @@
+*Colorgenerator is  a new single-page application in build React JS with the help of npx create-react-app CLI.
+*React version is 17.0.1.
+
+*Dependency
+    *react:^17.0.1,
+    *react-dom:^17.0.1",
+    *react-scripts:4.0.0,
+    *bootstrap: "^4.5.3",
+    *reactstrap: "^8.6.0",
+* There are ENV files for Productions and Devlopment, project will pick relative env variables according to relative environment
+
+* Business logic
+    After mounting components , it will generating array of unique color codes with RGB variation of 8
+    From range 0 to 256 and  we have 32,768 discrete colours and set in state.
+    with the help of state color array we display them on page   
+* Test case
+    Test run  command ### `npm run test`
+   
