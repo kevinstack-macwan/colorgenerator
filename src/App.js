@@ -5,7 +5,7 @@ function App() {
   let colorList = [];
 
   const [Colors, setColors] = useState([]);
-  const [dWidth, setDWidth] = useState(0);
+  // const [dWidth, setDWidth] = useState(0);
   /**
    * At the time of component mounting
    * generating array of unique color codes with RGB variations
@@ -30,12 +30,6 @@ function App() {
     setColors(colorList);
   }, []);
 
-  // set color box width
-  useEffect(() => {
-    let displayLength = parseInt((window.innerWidth - 124) / 32);
-    setDWidth(displayLength);
-  }, []);
-
   return (
     <div className="App" key={"AppKey"}>
       Color Generator
@@ -43,12 +37,12 @@ function App() {
         <Col
           key={Math.random().toString()}
           md="12"
-          className="d-flex flex-row flex-wrap mt-1"
+          className="d-flex flex-row flex-wrap mt-1 mx-5 colDiv"
         >
           {Colors.map((element, i) => (
             <div
               key={i}
-              style={{ background: `rgb(${element})`, width: `${dWidth}px` }}
+              style={{ background: `rgb(${element})` }}
               className="rgbColorBox"
             ></div>
           ))}

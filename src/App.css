@@ -37,9 +37,15 @@
   }
 }
 
+.colDiv {
+  width: 256px !important;
+  max-width: 256px !important;
+  height: 128px !important;
+  max-height: 128px !important;
+}
+
 .rgbColorBox {
-  height: 24px;
+  height: 0.3px;
+  width: 7px;
   overflow: hidden;
-  border-radius: 2px 2px 0px 0px;
-  margin: 0px 2px 2px 2px;
 }
