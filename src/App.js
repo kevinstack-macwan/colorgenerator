@@ -1,16 +1,28 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Row, Col } from "reactstrap";
+import {Row,Col} from "reactstrap"
 function App() {
   let colorList = [];
 
   const [Colors, setColors] = useState([]);
-  // const [dWidth, setDWidth] = useState(0);
+  const [dWidth, setDWidth] = useState(0);
+  const [ColorsCount, setColorsCount] = useState(0);
   /**
    * At the time of component mounting
    * generating array of unique color codes with RGB variations
    */
   useEffect(() => {
+
+  }, []);
+
+  // set color box width
+  useEffect(() => {
+    let displayLength = parseInt((window.innerWidth - 124) /32);
+    setDWidth(displayLength);
+  }, [])
+
+
+  const generateColoresFn=()=>{
     const value = 8;
     var v = 255 / value;
 
@@ -28,24 +40,20 @@ function App() {
      * set color list into state array
      */
     setColors(colorList);
-  }, []);
+    setColorsCount(colorList.length)
+  }
 
   return (
     <div className="App" key={"AppKey"}>
-      Color Generator
-      <Row key={Math.random().toString()}>
-        <Col
-          key={Math.random().toString()}
-          md="12"
-          className="d-flex flex-row flex-wrap mt-1 mx-5 colDiv"
-        >
-          {Colors.map((element, i) => (
-            <div
-              key={i}
-              style={{ background: `rgb(${element})` }}
-              className="rgbColorBox"
-            ></div>
-          ))}
+      <h1>Color Generator</h1>
+      <button onClick={generateColoresFn}>Generate Colors</button>
+
+  <div disable={ColorsCount.length>0}id="counter-value">{ColorsCount}</div>
+      <Row key={(Math.random()).toString()}>
+        <Col  key={(Math.random()).toString()} md="12" className="d-flex flex-row flex-wrap mt-1 mx-5 colDiv">
+        {Colors.length>0&&Colors.map((element,i) => (
+            <div key={i} style={{ background: `rgb(${element})` }} className="rgbColorBox"></div>
+        ))}
         </Col>
       </Row>
     </div>
